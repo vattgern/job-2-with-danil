@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #FFF2CE;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.avtorizasia {
+  background-color: #7D4E43;
+  border-radius: 5%;
+  width: 50vw;
+  height: 40vw;
+  margin-top: 5.5vw;
+  margin-left: 25vw;
+}
+
+label {
+  color: #FAE4CB;
+  font-size: 2vw;
+}
+
+h1 {
+  color: #FAE4CB;
+  font-size: 3vw;
+  margin-left: 28vw;
+  padding-top: 3vw;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  width: 40vw;
+  height: 3vw;
+  border-radius: 25px;
+  border: none;
+  margin-top: 1vw;
+  padding-left: 1vw;
+  font-size: 1.3vw;
+  color: #522E2E;
+  background-color: #FAE4CB;
+  text-decoration-color: #522E2E;
+}
+
+form {
+  margin-left: 4vw;
+  margin-top: 3vw;
+}
+
+p {
+  font-size: 1.5vw;
+}
+
+a {
+  font-size: 1.2vw;
+  color: #FAE4CB;
+}
+
+#a {
+  color: #846e63;
+}
+
+button {
+  width: 12vw;
+  height: 3vw;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3vw;
+  background-color: #FAE4CB;
+  color: #522E2E;
+}
+
+.pp {
+  margin-right: 6.5vw;
+  color: #FAE4CB;
+}
+
+.header {
+  width: auto;
+  height: 5vw;
+  background-color: #ebdfd6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img {
+  height: 2vw;
+  width: 2vw;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.logo {
+  height: 4vw;
+  width: 4vw;
+  margin-left: 52vw;
+  position: absolute;
+}
+
+.title {
+  font-size: 3vw;
+  margin-top: 1vw;
+  margin-right: 12vw;
+}
+
+.info {
+  width: auto;
+  height: max-content;
+  padding-bottom: 8vw;
+  border-bottom: solid 0.2vw #846e63;
+}
+
+.but {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-left: 24vw;
+  margin-top: 10vw;
+}
+
+.inf_book {
+  background-color: #846e63;
+  border-radius: 0 0 2vw 2vw;
+  width: 70vw;
+  height: 13vw;
+
+  margin-left: 5vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.IMGF {
+  margin-left: -2vw;
+  position: absolute;
+  margin-top: -8vw;
+}
+
+.button {
+  width: 7vw;
+  height: 2vw;
+  font-size: 1.3vw;
+  color: #443229;
+  background-color: #fbf3ee;
+  border-radius: 12px;
+  border: none;
+  margin-right: 2vw;
+}
+
+.p {
+  color: #fff;
+  font-size: 2.8vw;
+  margin-left: 24vw;
+}
+
+.b {
+  position: absolute;
+  margin-top: 3vw;
+  margin-left: 4vw;
+  width: 15vw;
+  height: 23vw;
+}
+
+:placeholder {
+  color: #000;
+}
