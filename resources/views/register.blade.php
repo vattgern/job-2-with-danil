@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <div class="avtorizasia">
         <h1>Регистрация</h1>
         <form class="formsub">

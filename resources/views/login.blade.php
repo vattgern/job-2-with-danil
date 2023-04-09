@@ -23,8 +23,6 @@
         <h1>Авторизация</h1>
         <form id="form">
             <a href="/"><img class="IMGF" src="img/image 52.png" alt=""></a>
-            <!-- <label for="title">Имя:</label><br>
-<input placeholder="Введите имя" type="text" name="username" class="name"><br><br> -->
             <label for="email">E-mail:</label><br />
             <input placeholder="Введите e-mail" name="email" type="email" class="email" /><br /><br />
             <label for="password">Пароль:</label><br />

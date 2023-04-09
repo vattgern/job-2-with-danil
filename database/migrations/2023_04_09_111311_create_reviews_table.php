@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('count');
             $table->text('content');
             // Бан
-            $table->boolean('ban')->default('false');
+            $table->boolean('ban')->default(false);
             $table->timestamps();
         });
     }
