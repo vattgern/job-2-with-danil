@@ -292,7 +292,7 @@
      border-radius: 15px 60px 15px 15px;
  }
 
- .block_cont {}
+ /* .block_cont {} */
 
  .price {
      color: var(--collor5);

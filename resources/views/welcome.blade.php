@@ -18,7 +18,6 @@
 <body style="overflow-x: hidden;">
     <div class="block1_1">
         <header>
-
             <div class="header">
                 <p class="texth41">Сортировать по цене</p>
                 <img class="icons" src="img/image 24.png">
@@ -27,21 +26,18 @@
                 <a class="texth4" href="">Войти</a>
                 <a href="/login"><img class="icons1" src="img/image 24.png"></a>
             </div>
-
         </header>
         <div class=" b1"></div>
         <div class="main">
-
             <div class="b2">
                 <div class="b21">
-
                     <img class="img1" src="img/Rectangle 141.png" alt="">
                     <p class="Panecillo">Panecillo</p>
                     <p class="slogan">Приятное начало хорошего дня</p>
                     <img class="Group" src="img/Group 5.png" alt="">
                     <img class="r" src="img/Rectangle 140.png" alt="">
                     <p class="pp">Подробнее</p>
-                    <div class="b22"> <img class="img2" src="img/Rectangle 180 (1).png" alt=""></div>
+                    <div class="b22"><img class="img2" src="img/Rectangle 180 (1).png" alt=""></div>
                 </div>
             </div>
             <div class="b3"></div>
