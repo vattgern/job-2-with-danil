@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/register', [PageController::class, 'register']);
 Route::post('/registeration', [AuthController::class, 'signUp'])->name('registeration');
 
 
-Route::get('/admin', [PageController::class, 'admin']);
+Route::get('/admin', [PageController::class, 'admin'])->name('admin');
 
+Route::post('/product', [ProductController::class, 'create'])->name('storeProduct');
 Route::get('/product/{id}', [PageController::class, 'product']);

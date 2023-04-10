@@ -48,6 +48,9 @@ class AuthController extends Controller
         Auth::login($user);
         $token = $user->createToken('auth_token')->plainTextToken;
 
+        if($user->administrator == true){
+            return  redirect('/admin');
+        }
         return redirect('/');
     }
     public function me(): \Illuminate\Http\JsonResponse
