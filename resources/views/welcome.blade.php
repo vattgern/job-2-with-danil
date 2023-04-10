@@ -14,7 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
-
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
 <body style="overflow-x: hidden;">
     <div class="block1_1">
         <header>
@@ -23,8 +25,18 @@
                 <img class="icons" src="img/image 24.png">
                 <p class="texth42">Сортировать по категории</p>
                 <img class="icons" src="img/image 24.png">
-                <a class="texth4" href="">Войти</a>
-                <a href="/login"><img class="icons1" src="img/image 24.png"></a>
+                @auth
+                    <a href="/logout" style="position: relative; z-index: 9999;">
+                        <p class="texth4">Выйти</p>
+                    </a>
+                    <a href="/">
+                        <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
+                    </a>
+                @endauth
+                @guest
+                    <a class="texth4" href="">Войти</a>
+                    <a href="/login"><img class="icons1" src="img/image 24.png"></a>
+                @endguest
             </div>
         </header>
         <div class=" b1"></div>
@@ -342,7 +354,7 @@
         <img class="mail_img" src="img/Rectangle 182 (1).png" alt="">
         <p class="mail">Связаться с нами: Panechillo@mail.com</p>
     </div>
-    <script src="/js/script.js"></script>
+{{--    <script src="/js/script.js"></script>--}}
 </body>
 
 </html>

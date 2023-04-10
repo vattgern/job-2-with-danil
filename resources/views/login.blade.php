@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <title>Авторизация</title>
 </head>
@@ -21,7 +20,8 @@
 
     <div class="avtorizasia">
         <h1>Авторизация</h1>
-        <form id="form">
+        <form id="form" method="post" action="{{ route('login') }}">
+            @csrf
             <a href="/"><img class="IMGF" src="img/image 52.png" alt=""></a>
             <label for="email">E-mail:</label><br />
             <input placeholder="Введите e-mail" name="email" type="email" class="email" /><br /><br />
@@ -35,7 +35,7 @@
                 </p>
             </div>
             <br />
-            <button class="buttonsub">Войти</button>
+            <button class="buttonsub" type="submit">Войти</button>
         </form>
     </div>
     <script src="/js/avtor.js">
