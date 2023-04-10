@@ -27,6 +27,5 @@ Route::post('/registeration', [AuthController::class, 'signUp'])->name('register
 
 
 Route::get('/admin', [PageController::class, 'admin'])->name('admin');
-
-Route::post('/product', [ProductController::class, 'create'])->name('storeProduct');
-Route::get('/product/{id}', [PageController::class, 'product']);
+Route::get('/products/{id}', [PageController::class, 'product']);
+Route::post('/add_product', [ProductController::class, 'add_product'])->name('add_product');

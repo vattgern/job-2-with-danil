@@ -29,9 +29,15 @@
                     <a href="/logout" style="position: relative; z-index: 9999;">
                         <p class="texth4">Выйти</p>
                     </a>
-                    <a href="/">
-                        <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
-                    </a>
+                    @if(Auth::guard('sanctum')->user()->administrator)
+                        <a href="/admin">
+                            <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
+                        </a>
+                    @else
+                        <a href="/">
+                            <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
+                        </a>
+                    @endif
                 @endauth
                 @guest
                     <a class="texth4" href="">Войти</a>

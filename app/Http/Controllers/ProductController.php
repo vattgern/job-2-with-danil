@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function create(ProductRequest $request){
+    public function add_product(ProductRequest $request){
+        dd($request->all());
         $img = $request->file('image');
 
         $path = Storage::disk('public')->put('products', $img);
@@ -21,6 +22,6 @@ class ProductController extends Controller
             'category' => 'что-то',
             'image' => '/storage/'.$path
         ]);
-        return redirect('/admin');
+//        return redirect('/admin');
     }
 }

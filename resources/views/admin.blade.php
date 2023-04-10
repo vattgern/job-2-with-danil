@@ -73,7 +73,7 @@ $users = \App\Models\User::all()->where('administrator', '!=', true)
                     <a href="#close" title="Close" class="close">×</a>
                 </div>
                 <div class="modal-body">
-                    <form method="post" enctype="multipart/form-data" action="{{ route('storeProduct') }}">
+                    <form action="{{ route('add_product') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="">Название</label>
                         <input class="in1" type="text" name="title"><br>
@@ -86,9 +86,8 @@ $users = \App\Models\User::all()->where('administrator', '!=', true)
                         <input class="aa2" type="file" name="image">
                         <label for="">Описание:</label><br>
                         <textarea id="" cols="30" rows="10" name="description"></textarea><br>
-                        <button class="bb1" type="submit">Отправить</button>
+                        <input class="bb1" type="submit" value="Отправить">
                     </form>
-
                 </div>
             </div>
         </div>
