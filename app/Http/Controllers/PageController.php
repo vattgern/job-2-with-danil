@@ -8,24 +8,34 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function all(){
+    public function all()
+    {
         $products = Product::all();
-        return view('welcome',compact('products'));
+        return view('welcome', compact('products'));
     }
-    public function login(){
+    public function login()
+    {
         return view('login');
     }
-    public function index($product){
+    public function index($product)
+    {
         $product = new ProductResource(Product::find($product));
         return view('open_product', compact('product'));
     }
-    public function register(){
+    public function register()
+    {
         return view('register');
     }
-    public function admin(){
+    public function admin()
+    {
         return view('admin');
     }
-    public function product($id){
+    public function product($id)
+    {
         return view('open_product');
+    }
+    public function profile()
+    {
+        return view('profile');
     }
 }

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'all']);
 
 Route::get('/login', [PageController::class, 'login']);
+Route::get('/profile', [PageController::class, 'profile']);
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('login');
 
 Route::get('/logout', [AuthController::class, 'logout']);
