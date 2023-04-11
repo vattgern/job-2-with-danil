@@ -17,11 +17,12 @@ class PageController extends Controller
         $products = Product::all();
         return view('welcome', compact('products'));
     }
-    public function main($mode){
-        if($mode == 'price'){
+    public function main($mode)
+    {
+        if ($mode == 'price') {
             $products = DB::table('products')->orderBy('price')->get();
-            return view('index',compact('products'));
-        } elseif ($mode == 'category'){
+            return view('index', compact('products'));
+        } elseif ($mode == 'category') {
             $products = DB::table('products')->orderBy('category')->get();
             return  view('index', compact('products'));
         } else {
@@ -44,7 +45,8 @@ class PageController extends Controller
     }
     public function admin()
     {
-        return view('admin');
+        $orders = new OrderResource(Order::all()->where('status', '!=', true));
+        return view('admin', compact('orders'));
     }
     public function product($id)
     {

@@ -60,6 +60,8 @@
  }
 
  .texth42 {
+    position: relative;
+    z-index: 9999;
      text-decoration: none;
      margin-top: 0.6vw;
      font-size: 1.4vw;

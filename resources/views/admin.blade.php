@@ -17,7 +17,7 @@
 @php
 $users = \App\Models\User::all()->where('administrator', '!=', true);
 
-$orders = \App\Models\Order::all();
+$orders = \App\Models\Order::all()->where('status', '!=', true);
 @endphp
 <body>
     <div class="prof">
@@ -75,7 +75,20 @@ $orders = \App\Models\Order::all();
                 </div>
                 <div class="modal-body">
                     @foreach($orders as $order)
-                        {{$order}}
+                    {{ $order->product->title }}
+                    {{ $order->product->price }}р.
+                    {{ $order->product->weight }}кг.
+                    {{ $order->contact->address }}
+                    {{ $order->contact->tel }}
+                    {{ $order->date_order }}
+                    {{ $order->contact->email }}
+                    {{ $order->contact->fullName }}
+                    {{ $order->status }}
+                    <form action="/order/accept" method="post">
+                        @csrf
+                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+                        <button type="submit">Принять</button>
+                    </form>
                     @endforeach
                 </div>
             </div>
