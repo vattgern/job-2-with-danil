@@ -41,10 +41,9 @@
 
   .header {
     position: relative;
-    margin-left: vw;
     width: 90vw;
     display: flex;
-    justify-content: space-between;
+      justify-content: space-evenly;
   }
 
   .texth4 {
@@ -79,6 +78,7 @@
     text-decoration: none;
 
     margin-top: 0.6vw;
+      margin-right: 20vw;
 
     font-size: 1.4vw;
 
@@ -86,11 +86,7 @@
 
     color: var(--collor5);
 
-    margin-left: 7vw;
-
     border: none;
-
-    margin-left: 11vw;
 
   }
 

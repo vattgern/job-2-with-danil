@@ -18,7 +18,6 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('count');
             $table->text('content');
             // Бан
             $table->boolean('ban')->default(false);

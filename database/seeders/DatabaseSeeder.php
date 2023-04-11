@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,5 +28,7 @@ class DatabaseSeeder extends Seeder
             'avatar' => '/img/5007200.png',
             'administrator' => true
         ]);
+
+        Product::factory(16)->create();
     }
 }

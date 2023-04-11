@@ -16,6 +16,25 @@
 </head>
 @php
     use Illuminate\Support\Facades\Auth;
+
+    $arrOne = [];
+    $arrTwo = [];
+    $arrThree = [];
+    $arrFour = [];
+    foreach ($products as $index => $product) {
+        if($index < 4){
+            $arrOne[] = $product;
+        }
+        if( $index >= 4 && $index < 8){
+            $arrTwo[] = $product;
+        }
+        if($index >= 8 && $index < 12){
+            $arrThree[] = $product;
+        }
+        if($index > 11){
+            $arrFour[] = $product;
+        }
+    }
 @endphp
 <body style="overflow-x: hidden;">
     <div class="block1_1">
@@ -68,43 +87,17 @@
             <p class="right">Торты</p>
             <img class="zagaga" src="img/Vector 25.png" alt="">
             <div class="container">
-                <div class="block_cont" id="f1">
-                    <img class="cake" src="img/image 5 (2).png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
+                @foreach($arrOne as $product)
+                    <div class="block_cont" id="f1">
+                        <img class="cake" src="{{ $product->image }}" alt="">
+                        <a href="/products/{{ $product->id }}" class="name">{{ $product->title }}</a>
 
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
+                        <div class="block_conte">
+                            <p class="price">{{ $product->price }}p</p>
+                            <img class="last" src="img/image 24.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="block_cont" id="f2">
-                    <img class="cake" src="img/image 57.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-
-                </div>
-                <div class="block_cont" id="f3">
-                    <img class="cake" src="img/image 7.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
-                <div class="block_cont" id="f4">
-                    <img class="cake" src="img/image 8.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
@@ -118,43 +111,17 @@
             <p class="right">Торты</p>
             <img class="zagaga" src="img/Vector 25.png" alt="">
             <div class="container">
-                <div class="block_cont" id="f1">
-                    <img class="cake" src="img/image 5 (2).png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
+                @foreach($arrTwo as $product)
+                    <div class="block_cont" id="f1">
+                        <img class="cake" src="{{ $product->image }}" alt="">
+                        <a href="/products/{{ $product->id }}" class="name">{{ $product->title }}</a>
 
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
+                        <div class="block_conte">
+                            <p class="price">{{ $product->price }}p</p>
+                            <img class="last" src="img/image 24.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="block_cont" id="f2">
-                    <img class="cake" src="img/image 57.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-
-                </div>
-                <div class="block_cont" id="f3">
-                    <img class="cake" src="img/image 7.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
-                <div class="block_cont" id="f4">
-                    <img class="cake" src="img/image 8.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
@@ -165,43 +132,17 @@
             <p class="right">Торты</p>
             <img class="zagaga" src="img/Vector 25.png" alt="">
             <div class="container">
-                <div class="block_cont" id="f1">
-                    <img class="cake" src="img/image 5 (2).png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
+                @foreach($arrThree as $product)
+                    <div class="block_cont" id="f1">
+                        <img class="cake" src="{{ $product->image }}" alt="">
+                        <a href="/products/{{ $product->id }}" class="name">{{ $product->title }}</a>
 
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
+                        <div class="block_conte">
+                            <p class="price">{{ $product->price }}p</p>
+                            <img class="last" src="img/image 24.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="block_cont" id="f2">
-                    <img class="cake" src="img/image 57.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-
-                </div>
-                <div class="block_cont" id="f3">
-                    <img class="cake" src="img/image 7.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
-                <div class="block_cont" id="f4">
-                    <img class="cake" src="img/image 8.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
@@ -212,43 +153,17 @@
             <p class="right">Торты</p>
             <img class="zagaga" src="img/Vector 25.png" alt="">
             <div class="container">
-                <div class="block_cont" id="f1">
-                    <img class="cake" src="img/image 5 (2).png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
+                @foreach($arrFour as $product)
+                    <div class="block_cont" id="f1">
+                        <img class="cake" src="{{ $product->image }}" alt="">
+                        <a href="/products/{{ $product->id }}" class="name">{{ $product->title }}</a>
 
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
+                        <div class="block_conte">
+                            <p class="price">{{ $product->price }}p</p>
+                            <img class="last" src="img/image 24.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="block_cont" id="f2">
-                    <img class="cake" src="img/image 57.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-
-                </div>
-                <div class="block_cont" id="f3">
-                    <img class="cake" src="img/image 7.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
-                <div class="block_cont" id="f4">
-                    <img class="cake" src="img/image 8.png" alt="">
-                    <p class="name">Торт "Vanilla"</p>
-
-                    <div class="block_conte">
-                        <p class="price">2000p</p>
-                        <img class="last" src="img/image 24.png" alt="">
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>

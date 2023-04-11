@@ -18,7 +18,6 @@ return new class extends Migration
 
             $table->text('address');
             $table->string('tel');
-            $table->date('date_order');
 
             $table->string('email');
             $table->string('fullName');

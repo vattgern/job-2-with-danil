@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'all']);
 
 Route::get('/login', [PageController::class, 'login']);
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('login');
@@ -27,6 +29,9 @@ Route::post('/registeration', [AuthController::class, 'signUp'])->name('register
 
 
 Route::get('/admin', [PageController::class, 'admin'])->name('admin');
-Route::get('/products/{id}', [PageController::class, 'product']);
+Route::get('/products/{product}', [PageController::class, 'index']);
 Route::post('/add_product', [ProductController::class, 'add_product'])->name('add_product');
 Route::post('/product', [ProductController::class, 'store']);
+Route::post('/add_review', [ReviewController::class, 'add'])->name('add_review');
+
+Route::post('/order', [OrderController::class, 'store']);
