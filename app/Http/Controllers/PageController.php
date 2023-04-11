@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -49,6 +52,7 @@ class PageController extends Controller
     }
     public function profile()
     {
-        return view('profile');
+        $orders = new OrderResource(Order::all()->where('user_id', Auth::guard('sanctum')->id()));
+        return view('profile', compact('orders'));
     }
 }
