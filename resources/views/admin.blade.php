@@ -73,7 +73,7 @@ $users = \App\Models\User::all()->where('administrator', '!=', true)
                     <a href="#close" title="Close" class="close">×</a>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('add_product') }}" method="post" enctype="multipart/form-data">
+                    <form action="/product" enctype="multipart/form-data" method="post">
                         @csrf
                         <label for="">Название</label>
                         <input class="in1" type="text" name="title"><br>

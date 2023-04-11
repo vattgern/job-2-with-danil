@@ -24,4 +24,18 @@ class ProductController extends Controller
         ]);
 //        return redirect('/admin');
     }
+    public function store(Request $request){
+        $img = $request->file('image');
+
+        $path = Storage::disk('public')->put('products', $img);
+        Product::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'weight' => $request->input('weight'),
+            'category' => 'что-то',
+            'image' => '/storage/'.$path
+        ]);
+        return redirect('/admin');
+    }
 }
