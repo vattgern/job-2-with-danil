@@ -37,9 +37,23 @@ $orders = \App\Models\Order::all();
                     <p class="p2">Список пользователей: </p>
                     <img class="search" src="img/image 52.png" alt="">
                 </div>
-                <div class="mail-color">
+                <div class="mail-color" style="overflow-y: scroll">
                     @foreach($users as $user)
                         {{$user->name}}
+                        @if($user->ban)
+                            <form method="post" action="/admin/ban/remove/{{$user->id}}">
+                            @csrf
+                                @method('PATCH')
+                                <button type="submit">Разбанить</button>
+                            </form>
+                        @else
+                            <form method="post" action="/admin/ban/add/{{$user->id}}">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit">Забанить</button>
+                            </form>
+                        @endif
+                        <hr>
                     @endforeach
                 </div>
             </div>

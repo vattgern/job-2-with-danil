@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar');
             $table->boolean('administrator')->default(false);
+            $table->boolean('ban')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

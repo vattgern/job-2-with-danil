@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BanController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -41,3 +42,7 @@ Route::delete('/order/delete', [OrderController::class, 'destroy']);
 
 Route::patch('/admin/reviews/{id}', [ReviewController::class, 'baning']);
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
+
+Route::patch('/admin/ban/add/{id}', [BanController::class, 'addBan']);
+Route::patch('/admin/ban/remove/{id}', [BanController::class, 'removeBan']);
+Route::get('/ban', [PageController::class, 'ban']);

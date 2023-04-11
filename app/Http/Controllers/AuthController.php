@@ -45,6 +45,11 @@ class AuthController extends Controller
             return redirect('login');
         }
         $user = Auth::guard('sanctum')->user();
+        if($user->ban){
+            auth('sanctum')->user()->tokens()->delete();
+            Auth::logout();
+            return redirect('/ban');
+        }
         Auth::login($user);
         $token = $user->createToken('auth_token')->plainTextToken;
 

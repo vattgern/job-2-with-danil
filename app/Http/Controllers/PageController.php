@@ -55,4 +55,7 @@ class PageController extends Controller
         $orders = new OrderResource(Order::all()->where('user_id', Auth::guard('sanctum')->id()));
         return view('profile', compact('orders'));
     }
+    public function ban(){
+        return view('ban');
+    }
 }
