@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>{{$product->title}}</title>
 </head>
+
 <body>
     <div class="block1_1">
         <header>
@@ -25,22 +26,22 @@
                 <p class="texth41">Цена: {{ $product->price }}р.</p>
                 <p class="texth42">Вес: {{ $product->weight }}кг.</p>
                 @auth
-                    <a href="/logout" style="position: relative; z-index: 9999;">
-                        <p class="texth42">Выйти</p>
-                    </a>
-                    @if(Auth::guard('sanctum')->user()->administrator)
-                        <a href="/admin">
-                            <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
-                        </a>
-                    @else
-                        <a href="/">
-                            <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
-                        </a>
-                    @endif
+                <a href="/logout" style="position: relative; z-index: 9999;">
+                    <p class="texth42">Выйти</p>
+                </a>
+                @if(Auth::guard('sanctum')->user()->administrator)
+                <a href="/admin">
+                    <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
+                </a>
+                @else
+                <a href="/">
+                    <img class="icons1" src="{{ Auth::guard('sanctum')->user()->avatar  }}">
+                </a>
+                @endif
                 @endauth
                 @guest
-                    <a class="texth4" href="">Войти</a>
-                    <a href="/login"><img class="icons1" src="img/image 24.png"></a>
+                <a class="texth4" href="">Войти</a>
+                <a href="/login"><img class="icons1" src="img/image 24.png"></a>
                 @endguest
             </div>
         </header>
@@ -54,9 +55,12 @@
                     <div class="op_tovara">
                         {{ $product->description }}
                     </div>
+                    @auth
                     <a class="a" href="#openModal">
                         <p class="pp"><button class="button2">Заказать</button> </p>
                     </a>
+                    @endauth
+
                     <div class="b22"> <img class="img2" src="{{ $product->image }}" alt=""></div>
                 </div>
             </div>
@@ -65,21 +69,21 @@
     </div>
     <div class="comment">
         @auth
-            <p class="c">Оставьте свой комментарий</p>
-            <form class="area" action="/add_review" method="post">
-                @csrf
-                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                <textarea name="content" id="tetArea" cols="30" rows="10"></textarea>
-                <button id="bb" class="bb" type="submit">Отправить</button>
-            </form>
+        <p class="c">Оставьте свой комментарий</p>
+        <form class="area" action="/add_review" method="post">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <textarea name="content" id="tetArea" cols="30" rows="10"></textarea>
+            <button id="bb" class="bb" type="submit">Отправить</button>
+        </form>
         @endauth
         <p class="c">Комментарии пользователей</p>
-            @php
-                $reviews = \App\Http\Resources\ReviewResource::collection($product->reviews);
-            @endphp
+        @php
+        $reviews = \App\Http\Resources\ReviewResource::collection($product->reviews);
+        @endphp
         @foreach($reviews as $review)
-            {{$review}}
-            {{$review->content}}
+        {{$review}}
+        {{$review->content}}
         @endforeach
     </div>
 

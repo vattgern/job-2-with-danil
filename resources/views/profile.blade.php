@@ -60,7 +60,7 @@
                             </div>
                             <div class="ctat">
                                 <p class="ok">Статус заказа: принят</p>
-                                <button class="no"> Отменить</button>
+                                <button class="no">Отменить</button>
                             </div>
                         </div>
                     </div>
