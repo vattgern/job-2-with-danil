@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'all']);
-Route::get('/main/{mode}', [PageController::class,'main']);
+Route::get('/main/{mode}', [PageController::class, 'main']);
 
 Route::get('/login', [PageController::class, 'login']);
 Route::get('/profile', [PageController::class, 'profile']);
@@ -38,6 +38,7 @@ Route::post('/add_review', [ReviewController::class, 'add'])->name('add_review')
 
 Route::post('/order', [OrderController::class, 'store']);
 Route::delete('/order/delete', [OrderController::class, 'destroy']);
+Route::post('/order/accept', [OrderController::class, 'accept']);
 
 Route::patch('/admin/reviews/{id}', [ReviewController::class, 'baning']);
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);

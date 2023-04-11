@@ -22,6 +22,16 @@ class OrderController extends Controller
         return redirect()->back();
     }
 
+    public function accept(Request $request)
+    {
+        $order = Order::find($request->input('order_id'));
+
+        $order->where('id', $request->input('order_id'))->update([
+            'status' => 1
+        ]);
+        return redirect('/admin#openModal');
+    }
+
     public function store(Request $request)
     {
         $contact = Contact::create([
