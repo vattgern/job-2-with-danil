@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,8 @@ class DatabaseSeeder extends Seeder
             'avatar' => '/img/5007200.png',
             'administrator' => true
         ]);
-
+        User::factory(5)->create();
         Product::factory(16)->create();
+        Review::factory(50)->create();
     }
 }

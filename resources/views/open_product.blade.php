@@ -40,8 +40,8 @@
                 @endif
                 @endauth
                 @guest
-                <a class="texth4" href="">Войти</a>
-                <a href="/login"><img class="icons1" src="img/image 24.png"></a>
+                <a class="texth4" href="/login">Войти</a>
+                <a href="/login"><img class="icons1" src="/img/image 24.png"></a>
                 @endguest
             </div>
         </header>
@@ -78,12 +78,30 @@
         </form>
         @endauth
         <p class="c">Комментарии пользователей</p>
-        @php
-        $reviews = \App\Http\Resources\ReviewResource::collection($product->reviews);
-        @endphp
-        @foreach($reviews as $review)
-        {{$review}}
-        {{$review->content}}
+        @foreach($product->reviews as $review)
+            @if($review->ban != true)
+                    <img src="{{ $review->user->avatar }}" alt="">
+                    ({{$review->user->name}})
+                    {{$review->content}}
+                    <br>
+                    {{ $review->created_at }}
+                    @auth
+                        @if(Auth::guard('sanctum')->user()->administrator)
+                            <form method="post" action="/admin/reviews/{{ $review->id }}">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit">Забанить</button>
+                            </form>
+                        @elseif(Auth::guard('sanctum')->id() == $review->user_id)
+                            <form method="post" action="/reviews/{{ $review->id }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Удалить</button>
+                            </form>
+                        @endif
+                    @endauth
+                    <hr>
+            @endif
         @endforeach
     </div>
 

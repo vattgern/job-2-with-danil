@@ -17,4 +17,18 @@ class ReviewController extends Controller
         ]);
         return redirect()->back();
     }
+    public function baning($id){
+        $review = Review::find($id);
+        $review->update([
+            'ban' => true,
+        ]);
+
+        return redirect()->back();
+    }
+    public function destroy($id){
+        $review = Review::find($id);
+        $review->delete();
+
+        return redirect()->back();
+    }
 }

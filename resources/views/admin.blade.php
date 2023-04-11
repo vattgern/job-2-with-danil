@@ -15,7 +15,9 @@
     <title>Профиль</title>
 </head>
 @php
-$users = \App\Models\User::all()->where('administrator', '!=', true)
+$users = \App\Models\User::all()->where('administrator', '!=', true);
+
+$orders = \App\Models\Order::all();
 @endphp
 <body>
     <div class="prof">
@@ -58,9 +60,9 @@ $users = \App\Models\User::all()->where('administrator', '!=', true)
                     <a href="#close" title="Close" class="close">×</a>
                 </div>
                 <div class="modal-body">
-                    <ul>
-                        <li></li>
-                    </ul>
+                    @foreach($orders as $order)
+                        {{$order}}
+                    @endforeach
                 </div>
             </div>
         </div>
