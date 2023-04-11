@@ -11,9 +11,15 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function delete(Request $request)
+    public function destroy(Request $request)
     {
-        Order::where('id', $request->input('id')->delete());
+        $order = Order::find($request->input('order_id'));
+        $contact = Contact::find($order->contact_id);
+
+        $contact->delete();
+        $order->delete();
+
+        return redirect()->back();
     }
 
     public function store(Request $request)

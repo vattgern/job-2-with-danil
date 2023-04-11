@@ -14,7 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Профиль {{Auth::guard('sanctum')->user()->name}}</title>
 </head>
-
+@php
+$orders = \App\Http\Resources\OrderResource::collection(\App\Models\Order::all()->where('user_id',\Illuminate\Support\Facades\Auth::guard('sanctum')->id()));
+@endphp
 <body>
     <div class="prof">
         <div class="img">
@@ -45,25 +47,36 @@
                     <a href="#close" title="Close" class="close">×</a>
                 </div>
                 <div class="modal-body">
-                    <div class=" color">
-                        <p class="ifo">Данные заказа:</p>
-                        <div class="dannie">
-                            <div class="cont"> <img class="i" src="img/Rectangle 180 (3).png" alt="">
-                                <p class="ppa21">Название: Торт “Вишня”</p>
-                                <p class="ppa22">Цена: 2000р.</p>
-                                <p class="ppa23">Вес: 2кг.</p>
-                                <p class="ppa">Адрес: Улица Чернышевского квартира 3</p>
-                                <p class="ppa">Контакты: 89608656172</p>
-                                <p class="ppa">Дата доставки заказа: 06.06.2023</p>
-                                <p class="ppa">Адрес почты: Vasilisa.genadievna1@mail.com</p>
-                                <p class="ppa">ФИО: Якушева Василиса Генадьевна</p>
-                            </div>
-                            <div class="ctat">
-                                <p class="ok">Статус заказа: принят</p>
-                                <button class="no">Отменить</button>
+                    @foreach($orders as $order)
+                        <div class=" color">
+                            <p class="ifo">Данные заказа:</p>
+                            <div class="dannie">
+                                <div class="cont"> <img class="i" src="/img/Rectangle 180 (3).png" alt="">
+                                    <p class="ppa21">Название: {{ $order->product->title }}</p>
+                                    <p class="ppa22">Цена: {{ $order->product->price }}р.</p>
+                                    <p class="ppa23">Вес: {{ $order->product->weight }}кг.</p>
+                                    <p class="ppa">Адрес: {{ $order->contact->address }}</p>
+                                    <p class="ppa">Контакты: {{ $order->contact->tel }}</p>
+                                    <p class="ppa">Дата доставки заказа: {{ $order->date_order }}</p>
+                                    <p class="ppa">Адрес почты: {{ $order->contact->email }}</p>
+                                    <p class="ppa">ФИО: {{ $order->contact->fullName }}</p>
+                                </div>
+                                @if($order->status == false)
+                                    <form method="post" action="/order/delete" class="ctat">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+                                        <p class="ok">Статус заказа: готовится</p>
+                                        <button class="no" type="submit">Отменить</button>
+                                    </form>
+                                @else
+                                    <div class="ctat">
+                                        <p class="ok">Статус заказа: доставлен</p>
+                                    </div>
+                                @endif
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

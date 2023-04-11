@@ -37,3 +37,4 @@ Route::post('/product', [ProductController::class, 'store']);
 Route::post('/add_review', [ReviewController::class, 'add'])->name('add_review');
 
 Route::post('/order', [OrderController::class, 'store']);
+Route::delete('/order/delete', [OrderController::class, 'destroy']);
