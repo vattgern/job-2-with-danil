@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,31 +20,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('authchek')->group(function () {
+    Route::get('/profile', [PageController::class, 'profile']);
+    Route::post('/add_review', [ReviewController::class, 'add'])->name('add_review');
+    Route::post('/order', [OrderController::class, 'store']);
+    Route::delete('/order/delete', [OrderController::class, 'destroy']);
+    Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
+});
+
+Route::middleware('adminchek')->group(function () {
+    Route::get('/admin', [PageController::class, 'admin'])->name('admin');
+    Route::post('/add_product', [ProductController::class, 'add_product'])->name('add_product');
+    Route::post('/product', [ProductController::class, 'store']);
+    Route::post('/order/accept', [OrderController::class, 'accept']);
+    Route::patch('/admin/reviews/{id}', [ReviewController::class, 'baning']);
+    Route::patch('/admin/ban/add/{id}', [BanController::class, 'addBan']);
+    Route::patch('/admin/ban/remove/{id}', [BanController::class, 'removeBan']);
+});
+
 Route::get('/', [PageController::class, 'all']);
 Route::get('/main/{mode}', [PageController::class, 'main']);
-
 Route::get('/login', [PageController::class, 'login']);
-Route::get('/profile', [PageController::class, 'profile']);
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('login');
-
-Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/register', [PageController::class, 'register']);
 Route::post('/registeration', [AuthController::class, 'signUp'])->name('registeration');
-
-
-Route::get('/admin', [PageController::class, 'admin'])->name('admin');
 Route::get('/products/{product}', [PageController::class, 'index']);
-Route::post('/add_product', [ProductController::class, 'add_product'])->name('add_product');
-Route::post('/product', [ProductController::class, 'store']);
-Route::post('/add_review', [ReviewController::class, 'add'])->name('add_review');
-
-Route::post('/order', [OrderController::class, 'store']);
-Route::delete('/order/delete', [OrderController::class, 'destroy']);
-Route::post('/order/accept', [OrderController::class, 'accept']);
-
-Route::patch('/admin/reviews/{id}', [ReviewController::class, 'baning']);
-Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
-
-Route::patch('/admin/ban/add/{id}', [BanController::class, 'addBan']);
-Route::patch('/admin/ban/remove/{id}', [BanController::class, 'removeBan']);
 Route::get('/ban', [PageController::class, 'ban']);
+Route::get('/logout', [AuthController::class, 'logout']);
