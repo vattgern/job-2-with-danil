@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'all']);
+Route::get('/main/{mode}', [PageController::class,'main']);
 
 Route::get('/login', [PageController::class, 'login']);
 Route::get('/profile', [PageController::class, 'profile']);

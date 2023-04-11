@@ -32,9 +32,9 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                 <div class="block1_1">
                     <header>
                         <div class="header">
-                            <p class="texth41">Сортировать по цене</p>
+                            <a href="/main/price" class="texth41">Сортировать по цене</a>
                             <img class="icons" src="img/image 24.png">
-                            <p class="texth42">Сортировать по категории</p>
+                            <a href="/main/category" class="texth42">Сортировать по категории</a>
                             <img class="icons" src="img/image 24.png">
                             @auth
                             <a href="/logout" style="position: relative; z-index: 9999;">
