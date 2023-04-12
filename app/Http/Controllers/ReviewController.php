@@ -18,6 +18,14 @@ class ReviewController extends Controller
         ]);
         return redirect()->back();
     }
+    public function update(Request $request, $id){
+        $review = Review::find($id);
+        $review->update([
+            'content'=>$request->input('content'),
+            'count' => $request->input('count'),
+        ]);
+        return redirect()->back();
+    }
     public function baning($id){
         $review = Review::find($id);
         $review->update([

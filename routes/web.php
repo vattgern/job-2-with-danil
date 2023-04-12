@@ -26,6 +26,7 @@ Route::middleware('authchek')->group(function () {
     Route::post('/order', [OrderController::class, 'store']);
     Route::delete('/order/delete', [OrderController::class, 'destroy']);
     Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
+    Route::patch('/reviews/{id}', [ReviewController::class, 'update']);
 });
 
 Route::middleware('adminchek')->group(function () {

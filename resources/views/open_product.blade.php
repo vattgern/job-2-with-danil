@@ -129,6 +129,7 @@
                                 @method('DELETE')
                                 <button type="submit">Удалить</button>
                             </form>
+                            <a href="">Редактирование</a>
                         @endif
                     @endauth
                     <hr>
