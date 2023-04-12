@@ -36,6 +36,10 @@ Route::middleware('adminchek')->group(function () {
     Route::patch('/admin/reviews/{id}', [ReviewController::class, 'baning']);
     Route::patch('/admin/ban/add/{id}', [BanController::class, 'addBan']);
     Route::patch('/admin/ban/remove/{id}', [BanController::class, 'removeBan']);
+    Route::delete('/admin/product/{id}', [ProductController::class, 'destroy']);
+    Route::patch('/admin/product/update', [ProductController::class, 'update']);
+
+    Route::get('/product/update/{id}', [PageController::class, 'editProduct']);
 });
 
 Route::get('/', [PageController::class, 'all']);

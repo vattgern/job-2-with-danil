@@ -60,4 +60,8 @@ class PageController extends Controller
     public function ban(){
         return view('ban');
     }
+    public function editProduct($id){
+        $product = Product::find($id);
+        return view('productEdit', compact('id', 'product'));
+    }
 }

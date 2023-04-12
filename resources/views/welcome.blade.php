@@ -88,6 +88,16 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <p class="price">{{ $product->price }}p</p>
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
+                                @auth
+                                    @if(Auth::guard('sanctum')->user()->administrator)
+                                        <form method="post" action="/admin/product/{{$product->id}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Удалить</button>
+                                        </form>
+                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
+                                    @endif
+                                @endauth
                             </div>
                             @endforeach
                         </div>
@@ -112,6 +122,15 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <p class="price">{{ $product->price }}p</p>
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
+                                @auth
+                                    @if(Auth::guard('sanctum')->user()->administrator)
+                                        <form method="post" action="/admin/product/{{$product->id}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Удалить</button>
+                                        </form>
+                                    @endif
+                                @endauth
                             </div>
                             @endforeach
                         </div>
@@ -133,6 +152,15 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <p class="price">{{ $product->price }}p</p>
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
+                                @auth
+                                    @if(Auth::guard('sanctum')->user()->administrator)
+                                        <form method="post" action="/admin/product/{{$product->id}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Удалить</button>
+                                        </form>
+                                    @endif
+                                @endauth
                             </div>
                             @endforeach
                         </div>
@@ -154,6 +182,15 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <p class="price">{{ $product->price }}p</p>
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
+                                @auth
+                                    @if(Auth::guard('sanctum')->user()->administrator)
+                                        <form method="post" action="/admin/product/{{$product->id}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Удалить</button>
+                                        </form>
+                                    @endif
+                                @endauth
                             </div>
                             @endforeach
                         </div>
