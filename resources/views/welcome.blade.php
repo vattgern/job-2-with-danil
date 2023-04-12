@@ -129,6 +129,7 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                             @method('DELETE')
                                             <button type="submit">Удалить</button>
                                         </form>
+                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
                                     @endif
                                 @endauth
                             </div>
@@ -159,6 +160,7 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                             @method('DELETE')
                                             <button type="submit">Удалить</button>
                                         </form>
+                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
                                     @endif
                                 @endauth
                             </div>
@@ -189,6 +191,7 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                             @method('DELETE')
                                             <button type="submit">Удалить</button>
                                         </form>
+                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
                                     @endif
                                 @endauth
                             </div>

@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
+@php
+    $categories = \App\Models\Category::all()
+@endphp
 <form action="/admin/product/update" enctype="multipart/form-data" method="post">
     @csrf
     @method('PATCH')
@@ -23,10 +26,16 @@
     <input class="in1" type="text" name="title" value="{{ $product->title }}"><br>
     <label for="">Вес</label>
     <input class="in2" type="text" name="weight" value="{{ $product->weight }}"><br>
+
+    <label for="">Категория</label>
+    <select name="category_id" id="">
+        @foreach($categories as $category)
+            <option value="{{$category->id}}">{{$category->title}}</option>
+        @endforeach
+    </select><br>
+
     <label for="">Цена</label>
     <input class="in3" type="text" name="price" value="{{ $product->price }}"><br>
-    <label for="">Категория</label>
-    <input class="in3" type="text" name="category" value="{{ $product->category }}"><br>
     <label class="aa" for="">Выберите фото</label><br>
     <input class="aa2" type="file" name="image">
     <label for="">Описание:</label><br>

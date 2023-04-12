@@ -34,7 +34,7 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'weight' => $request->input('weight'),
-            'category' => 'что-то',
+            'category_id' => $request->input('category_id'),
             'image' => '/storage/'.$path
         ]);
         return redirect('/admin');
@@ -45,14 +45,15 @@ class ProductController extends Controller
         if($request->file('image')){
             $img = $request->file('image');
             $path = Storage::disk('public')->put('products', $img);
+            $path .= '/storage/' .$path;
         }
         $product->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'weight' => $request->input('weight'),
-            'category' => $request->input('category'),
-            'image' => '/storage/' . $path
+            'category_id' => $request->input('category_id'),
+            'image' => $path
         ]);
 
         return redirect('/');

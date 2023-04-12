@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{{$product->title}}</title>
 </head>
 
@@ -72,6 +74,20 @@
         <p class="c">Оставьте свой комментарий</p>
         <form class="area" action="/add_review" method="post">
             @csrf
+
+            <span class="star__container">
+              <input type="radio" name="count" value="1" id="star-1" class="star__radio visuhide">
+              <input type="radio" name="count" value="2" id="star-2" class="star__radio visuhide">
+              <input type="radio" name="count" value="3" id="star-3" class="star__radio visuhide">
+              <input type="radio" name="count" value="4" id="star-4" class="star__radio visuhide">
+              <input type="radio" name="count" value="5" id="star-5" class="star__radio visuhide">
+
+              <label class="star__item" for="star-1"><span class="visuhide">1 star</span></label>
+              <label class="star__item" for="star-2"><span class="visuhide">2 stars</span></label>
+              <label class="star__item" for="star-3"><span class="visuhide">3 stars</span></label>
+              <label class="star__item" for="star-4"><span class="visuhide">4 stars</span></label>
+              <label class="star__item" for="star-5"><span class="visuhide">5 stars</span></label>
+            </span>
             <input type="hidden" name="product_id" value="{{ $product->id }}">
             <textarea name="content" id="tetArea" cols="30" rows="10"></textarea>
             <button id="bb" class="bb" type="submit">Отправить</button>
@@ -85,6 +101,21 @@
                     {{$review->content}}
                     <br>
                     {{ $review->created_at }}
+                    <span class="star__container">
+                        @for($i = 0; $i < 5; $i++)
+                            @if($review->count > $i)
+                                <input type="radio" name="rating" id="review-{{$review->id}}" value="{{$i + 1}}" checked disabled class="star__radio visuhide">
+                            @else
+                                <input type="radio" name="rating" id="review-{{$review->id}}" value="{{ $i + 1 }}" disabled class="star__radio visuhide">
+                            @endif
+                        @endfor
+                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">1 star</span></label>
+                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">2 stars</span></label>
+                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">3 stars</span></label>
+                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">4 stars</span></label>
+                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">5 stars</span></label>
+                    </span>
+
                     @auth
                         @if(Auth::guard('sanctum')->user()->administrator)
                             <form method="post" action="/admin/reviews/{{ $review->id }}">

@@ -20,6 +20,7 @@ class ReviewFactory extends Factory
             'product_id' => random_int(1,16),
             'user_id' => random_int(2,6),
             'content' => fake()->text,
+            'count' => random_int(1,5)
         ];
     }
 }

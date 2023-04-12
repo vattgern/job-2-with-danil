@@ -18,6 +18,8 @@
 $users = \App\Models\User::all()->where('administrator', '!=', true);
 
 $orders = \App\Models\Order::all()->where('status', '!=', true);
+
+$categories = \App\Models\Category::all();
 @endphp
 <body>
     <div class="prof">
@@ -108,6 +110,13 @@ $orders = \App\Models\Order::all()->where('status', '!=', true);
                         <input class="in1" type="text" name="title"><br>
                         <label for="">Вес</label>
                         <input class="in2" type="text" name="weight"><br>
+
+                        <label for="">Категория</label>
+                        <select name="category_id" id="">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select><br>
 
                         <label for="">Цена</label>
                         <input class="in3" type="text" name="price"><br>

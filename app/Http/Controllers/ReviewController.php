@@ -13,7 +13,8 @@ class ReviewController extends Controller
         Review::create([
             'product_id'=>$request->input('product_id'),
             'user_id'=> Auth::guard('sanctum')->id(),
-            'content'=>$request->input('content')
+            'content'=>$request->input('content'),
+            'count' => $request->input('count'),
         ]);
         return redirect()->back();
     }
