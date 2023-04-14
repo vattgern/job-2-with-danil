@@ -49,8 +49,22 @@
                             <a href="/products/{{ $product->id }}">{{ $product->title }}</a>
                         </div>
                         <div class="footer_card">
-                            <p>{{ $product->price }}p</p>
-                            <img src="img/image 24.png" alt="">
+                            <div>
+                                <p>{{ $product->price }}p</p>
+                                <img src="img/image 24.png" alt="">
+                            </div>
+                            @auth
+                            @if(Auth::guard('sanctum')->user()->administrator)
+                            <div>
+                                <form method="post" action="/admin/product/{{$product->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                                <a href="/product/update/{{$product->id}}">Редактировать</a>
+                            </div>
+                            @endif
+                            @endauth
                         </div>
                     </div>
                 </a>
