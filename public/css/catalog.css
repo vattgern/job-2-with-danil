@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background: #FFF2CE;
+}
+header{
+    height: 60px;
+    background-color: #7D4E43;
+    border-bottom: 2px solid #FFF2CE;
+}
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+header nav ul li{
+    margin-top: 0.6vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+header nav ul li a{
+    color: #FFF2CE;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+header nav ul li .icons{
+    width: 37px;
+    height: 37px;
+    margin-left: 0.6vw;
+}
+header nav ul div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+/* .section{
+    display: flex;
+} */
+/* .section div:first-child{
+    width: 6.2vw;
+    height: 100%;
+    background-color: #7D4E43;
+} */
+.type{
+    float: right;
+    width: 50%;
+    border: 1px solid #522E2E;
+    border-radius: 10vw 0 0 10vw;
+    margin-top: 6vh;
+}
+.type p{
+    color: #522E2E;
+    font-size: 75px;
+    padding-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.7vw;
+    margin-top: 25vh;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #7D4E43;
+    border-radius: 15px 15px 15px 60px;
+}
+.card .header_card img{
+    width: 250px;
+    height: auto;
+    padding: 20px;
+}
+.card .body_card a{
+    color: #FFF2CE;
+    font-size: 20px;
+    margin-left: 1.2vw;
+}
+.card .footer_card{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 3px solid #FFF2CE;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
+}
+.card .footer_card img{
+    width: 37px;
+    height: auto;
+}
+.card .footer_card p{
+    font-size: 20px;
+    color: #FFF2CE;
+}

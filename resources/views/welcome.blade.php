@@ -32,9 +32,9 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                 <div class="block1_1">
                     <header>
                         <div class="header">
-                            <a href="/main/price" class="texth41">Сортировать по цене</a>
+                            <a href="/catalog" class="texth41">Сортировать по цене</a>
                             <img class="icons" src="img/image 24.png">
-                            <a href="/main/category" class="texth42">Сортировать по категории</a>
+                            <a href="/catalog" class="texth42">Сортировать по категории</a>
                             <img class="icons" src="img/image 24.png">
                             @auth
                             <a href="/logout" style="position: relative; z-index: 9999;">
@@ -65,7 +65,7 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                 <p class="slogan">Приятное начало хорошего дня</p>
                                 <img class="Group" src="img/Group 5.png" alt="">
                                 <img class="r" src="img/Rectangle 140.png" alt="">
-                                <p class="pp">Подробнее</p>
+                                <a href="/catalog" class="pp">Подробнее</a>
                                 <div class="b22"><img class="img2" src="img/Rectangle 180 (1).png" alt=""></div>
                             </div>
                         </div>
@@ -89,14 +89,14 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
                                 @auth
-                                    @if(Auth::guard('sanctum')->user()->administrator)
-                                        <form method="post" action="/admin/product/{{$product->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit">Удалить</button>
-                                        </form>
-                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
-                                    @endif
+                                @if(Auth::guard('sanctum')->user()->administrator)
+                                <form method="post" action="/admin/product/{{$product->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                                <a href="/product/update/{{$product->id}}">Редактировать</a>
+                                @endif
                                 @endauth
                             </div>
                             @endforeach
@@ -123,14 +123,14 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
                                 @auth
-                                    @if(Auth::guard('sanctum')->user()->administrator)
-                                        <form method="post" action="/admin/product/{{$product->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit">Удалить</button>
-                                        </form>
-                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
-                                    @endif
+                                @if(Auth::guard('sanctum')->user()->administrator)
+                                <form method="post" action="/admin/product/{{$product->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                                <a href="/product/update/{{$product->id}}">Редактировать</a>
+                                @endif
                                 @endauth
                             </div>
                             @endforeach
@@ -154,14 +154,14 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
                                 @auth
-                                    @if(Auth::guard('sanctum')->user()->administrator)
-                                        <form method="post" action="/admin/product/{{$product->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit">Удалить</button>
-                                        </form>
-                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
-                                    @endif
+                                @if(Auth::guard('sanctum')->user()->administrator)
+                                <form method="post" action="/admin/product/{{$product->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                                <a href="/product/update/{{$product->id}}">Редактировать</a>
+                                @endif
                                 @endauth
                             </div>
                             @endforeach
@@ -185,14 +185,14 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                     <img class="last" src="img/image 24.png" alt="">
                                 </div>
                                 @auth
-                                    @if(Auth::guard('sanctum')->user()->administrator)
-                                        <form method="post" action="/admin/product/{{$product->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit">Удалить</button>
-                                        </form>
-                                        <a href="/product/update/{{$product->id}}">Редактировать</a>
-                                    @endif
+                                @if(Auth::guard('sanctum')->user()->administrator)
+                                <form method="post" action="/admin/product/{{$product->id}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                                <a href="/product/update/{{$product->id}}">Редактировать</a>
+                                @endif
                                 @endauth
                             </div>
                             @endforeach
