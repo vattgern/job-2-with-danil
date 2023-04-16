@@ -94,47 +94,49 @@
         </form>
         @endauth
         <p class="c">Комментарии пользователей</p>
-        @foreach($product->reviews as $review)
-            @if($review->ban != true)
-                    <img src="{{ $review->user->avatar }}" alt="">
-                    ({{$review->user->name}})
-                    {{$review->content}}
-                    <br>
-                    {{ $review->created_at }}
-                    <span class="star__container">
-                        @for($i = 0; $i < 5; $i++)
-                            @if($review->count > $i)
-                                <input type="radio" name="rating" id="review-{{$review->id}}" value="{{$i + 1}}" checked disabled class="star__radio visuhide">
-                            @else
-                                <input type="radio" name="rating" id="review-{{$review->id}}" value="{{ $i + 1 }}" disabled class="star__radio visuhide">
-                            @endif
-                        @endfor
-                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">1 star</span></label>
-                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">2 stars</span></label>
-                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">3 stars</span></label>
-                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">4 stars</span></label>
-                      <label class="star__item" for="review-{{$review->id}}"><span class="visuhide">5 stars</span></label>
-                    </span>
-
-                    @auth
-                        @if(Auth::guard('sanctum')->user()->administrator)
-                            <form method="post" action="/admin/reviews/{{ $review->id }}">
-                                @csrf
-                                @method('PATCH')
-                                <button type="submit">Забанить</button>
-                            </form>
-                        @elseif(Auth::guard('sanctum')->id() == $review->user_id)
-                            <form method="post" action="/reviews/{{ $review->id }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">Удалить</button>
-                            </form>
-                            <a href="">Редактирование</a>
-                        @endif
-                    @endauth
-                    <hr>
-            @endif
-        @endforeach
+        <div class="reviews">
+            @foreach($product->reviews as $review)
+                @if($review->ban != true)
+                    <div class="review-item">
+                        <div class="review-img">
+                            <img src="{{ $review->user->avatar }}" alt="">
+                        </div>
+                        <div class="review-content">
+                            <p class="review-author">{{$review->user->name}}</p>
+                            <p>
+                                {{$review->content}}
+                            </p>
+                            {{ $review->created_at }}
+                            <span class="review-star-area">
+                                @for($i = 0; $i < 5; $i++)
+                                    @if($review->count > $i)
+                                        <img src="/img/star.svg" alt="">
+                                    @endif
+                                @endfor
+                            </span>
+                        </div>
+                        <div class="auth-area">
+                            @auth
+                                @if(Auth::guard('sanctum')->user()->administrator)
+                                    <form method="post" action="/admin/reviews/{{ $review->id }}">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit">Забанить</button>
+                                    </form>
+                                @elseif(Auth::guard('sanctum')->id() == $review->user_id)
+                                    <form method="post" action="/reviews/{{ $review->id }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Удалить</button>
+                                    </form>
+                                    <a href="#editReview">Редактирование</a>
+                                @endif
+                            @endauth
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        </div>
     </div>
 
     <div id="openModal" class="modal">
@@ -161,6 +163,37 @@
                     <textarea name="questions" class="ff" cols="30" rows="10"></textarea><br>
                     <button class="button" type="submit">Отправить</button>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div id="editReview" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Редактирование отзыва</h3>
+                    <a href="#close" title="Close" class="close">×</a>
+                </div>
+                <div class="modal-body">
+                    <form action="" enctype="multipart/form-data" method="post">
+                        @csrf
+                        <span class="star__container">
+                          <input type="radio" name="count" value="1" id="star-6" class="star__radio visuhide">
+                          <input type="radio" name="count" value="2" id="star-7" class="star__radio visuhide">
+                          <input type="radio" name="count" value="3" id="star-8" class="star__radio visuhide">
+                          <input type="radio" name="count" value="4" id="star-9" class="star__radio visuhide">
+                          <input type="radio" name="count" value="5" id="star-10" class="star__radio visuhide">
+
+                          <label class="star__item" for="star-6"><span class="visuhide">1 star</span></label>
+                          <label class="star__item" for="star-7"><span class="visuhide">2 stars</span></label>
+                          <label class="star__item" for="star-8"><span class="visuhide">3 stars</span></label>
+                          <label class="star__item" for="star-9"><span class="visuhide">4 stars</span></label>
+                          <label class="star__item" for="star-10"><span class="visuhide">5 stars</span></label>
+                        </span>
+                        <label for="">Текст</label>
+                        <textarea id="" cols="30" rows="10" name="content"></textarea><br>
+                        <input class="bb1" type="submit" value="Отправить">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

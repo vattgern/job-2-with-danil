@@ -606,3 +606,50 @@
       transform-origin: 50% 33.3%;
       transition: transform 0.3s ease-out;
   }
+
+  .review-star-area{
+      width: 125px;
+      height: 35px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+  }
+  .review-star-area img{
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+  }
+
+  .reviews{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+  }
+  .review-item{
+      width: 100%;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+  }
+  .review-img{
+      width: 5%;
+      height: 100%;
+  }
+  .review-img img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  .review-content{
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+  }
+  .auth-area{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
