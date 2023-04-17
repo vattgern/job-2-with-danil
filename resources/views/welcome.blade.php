@@ -32,10 +32,16 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                 <div class="block1_1">
                     <header>
                         <div class="header">
-                            <a href="/catalog" class="texth41">Сортировать по цене</a>
-                            <img class="icons" src="img/image 24.png">
-                            <a href="/catalog" class="texth42">Сортировать по категории</a>
-                            <img class="icons" src="img/image 24.png">
+                            <a href="/catalog/price" class="texth41">
+                                Сортировать по цене
+                                <img class="icons" src="img/image 24.png">
+                            </a>
+
+                            <a href="/catalog/category" class="texth42">
+                                Сортировать по категории
+                                <img class="icons" src="img/image 24.png">
+                            </a>
+
                             @auth
                             <a href="/logout" style="position: relative; z-index: 9999;">
                                 <p class="texth4">Выйти</p>
@@ -51,8 +57,10 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                             @endif
                             @endauth
                             @guest
-                            <a class="texth4" href="">Войти</a>
-                            <a href="/login"><img class="icons1" src="img/image 24.png"></a>
+                            <a  href="/login" class="texth4" href="">
+                                Войти
+                                <img class="icons1" src="img/image 24.png">
+                            </a>
                             @endguest
                         </div>
                     </header>
@@ -64,8 +72,10 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                 <p class="Panecillo">Panecillo</p>
                                 <p class="slogan">Приятное начало хорошего дня</p>
                                 <img class="Group" src="img/Group 5.png" alt="">
-                                <img class="r" src="img/Rectangle 140.png" alt="">
-                                <a href="/catalog" class="pp">Подробнее</a>
+                                <div class="more">
+                                    <img src="img/Rectangle 140.png" alt="">
+                                    <a href="/catalog" class="pp">Подробнее</a>
+                                </div>
                                 <div class="b22"><img class="img2" src="img/Rectangle 180 (1).png" alt=""></div>
                             </div>
                         </div>

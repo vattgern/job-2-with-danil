@@ -27,6 +27,8 @@ Route::middleware('authchek')->group(function () {
     Route::delete('/order/delete', [OrderController::class, 'destroy']);
     Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
     Route::patch('/reviews/{id}', [ReviewController::class, 'update']);
+
+    Route::get('/reviews/edit/{id}/{product}', [PageController::class, 'reviewEdit']);
 });
 
 Route::middleware('adminchek')->group(function () {
@@ -51,5 +53,5 @@ Route::get('/register', [PageController::class, 'register']);
 Route::post('/registeration', [AuthController::class, 'signUp'])->name('registeration');
 Route::get('/products/{product}', [PageController::class, 'index']);
 Route::get('/ban', [PageController::class, 'ban']);
-Route::get('/catalog', [PageController::class, 'catalog']);
+Route::get('/catalog/{mode?}', [PageController::class, 'catalog']);
 Route::get('/logout', [AuthController::class, 'logout']);

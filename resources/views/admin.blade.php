@@ -131,6 +131,5 @@ $categories = \App\Models\Category::all();
         </div>
     </div>
 </body>
-</body>
 
 </html>

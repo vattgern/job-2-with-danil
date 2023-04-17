@@ -42,8 +42,10 @@
                 @endif
                 @endauth
                 @guest
-                <a class="texth4" href="/login">Войти</a>
-                <a href="/login"><img class="icons1" src="/img/image 24.png"></a>
+                <a class="texth4" href="/login">
+                    Войти
+                    <img class="icons1" src="/img/image 24.png">
+                </a>
                 @endguest
             </div>
         </header>
@@ -129,7 +131,7 @@
                                         @method('DELETE')
                                         <button type="submit">Удалить</button>
                                     </form>
-                                    <a href="#editReview">Редактирование</a>
+                                    <a href="/reviews/edit/{{ $review->id }}/{{ $product->id }}">Редактирование</a>
                                 @endif
                             @endauth
                         </div>
@@ -163,37 +165,6 @@
                     <textarea name="questions" class="ff" cols="30" rows="10"></textarea><br>
                     <button class="button" type="submit">Отправить</button>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div id="editReview" class="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Редактирование отзыва</h3>
-                    <a href="#close" title="Close" class="close">×</a>
-                </div>
-                <div class="modal-body">
-                    <form action="" enctype="multipart/form-data" method="post">
-                        @csrf
-                        <span class="star__container">
-                          <input type="radio" name="count" value="1" id="star-6" class="star__radio visuhide">
-                          <input type="radio" name="count" value="2" id="star-7" class="star__radio visuhide">
-                          <input type="radio" name="count" value="3" id="star-8" class="star__radio visuhide">
-                          <input type="radio" name="count" value="4" id="star-9" class="star__radio visuhide">
-                          <input type="radio" name="count" value="5" id="star-10" class="star__radio visuhide">
-
-                          <label class="star__item" for="star-6"><span class="visuhide">1 star</span></label>
-                          <label class="star__item" for="star-7"><span class="visuhide">2 stars</span></label>
-                          <label class="star__item" for="star-8"><span class="visuhide">3 stars</span></label>
-                          <label class="star__item" for="star-9"><span class="visuhide">4 stars</span></label>
-                          <label class="star__item" for="star-10"><span class="visuhide">5 stars</span></label>
-                        </span>
-                        <label for="">Текст</label>
-                        <textarea id="" cols="30" rows="10" name="content"></textarea><br>
-                        <input class="bb1" type="submit" value="Отправить">
-                    </form>
-                </div>
             </div>
         </div>
     </div>

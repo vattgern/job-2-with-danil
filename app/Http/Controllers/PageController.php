@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\ReviewResource;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -16,19 +18,6 @@ class PageController extends Controller
     {
         $products = Product::all();
         return view('welcome', compact('products'));
-    }
-    public function main($mode)
-    {
-        if ($mode == 'price') {
-            $products = DB::table('products')->orderBy('price')->get();
-            return view('index', compact('products'));
-        } elseif ($mode == 'category') {
-            $products = DB::table('products')->orderBy('category')->get();
-            return  view('index', compact('products'));
-        } else {
-            $products = Product::all();
-            return view('welcome', compact('products'));
-        }
     }
     public function login()
     {
@@ -66,9 +55,24 @@ class PageController extends Controller
         $product = Product::find($id);
         return view('productEdit', compact('id', 'product'));
     }
-    public function catalog()
+    public function catalog($mode = null)
     {
-        $products = Product::all();
+        $products = [];
+        if($mode == 'price'){
+            $products = ProductResource::collection(DB::table('products')
+                ->orderBy('price')
+                ->get());
+        } elseif ($mode == 'category') {
+            $products = ProductResource::collection(DB::table('products')
+                ->orderBy('category_id')
+                ->get());
+        } else {
+            $products = Product::all();
+        }
         return view('catalog', compact('products'));
+    }
+    public function reviewEdit($id, $product){
+        $review = new ReviewResource(Review::find($id));
+        return view('reviewEdit', compact('review', 'product'));
     }
 }

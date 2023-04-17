@@ -13,9 +13,10 @@
     <header>
         <nav>
             <ul>
-                <li><a href="/">Главная</a> <img class="icons" src="img/image 24.png"></li>
-                <li><a href="">Сортировать по цене</a> <img class="icons" src="img/image 24.png"></li>
-                <li><a href="">Сортировать по категориям</a> <img class="icons" src="img/image 24.png"></li>
+                <li><a href="/">Главная</a> <img class="icons" src="/img/image 24.png"></li>
+                <li><a href="/catalog/price">Сортировать по цене</a> <img class="icons" src="/img/image 24.png"></li>
+                <li><a href="/catalog/category">Сортировать по категориям</a> <img class="icons" src="/img/image 24.png"></li>
+                <li><a href="/catalog">Сбросить</a> <img class="icons" src="/img/image 24.png"></li>
                 <div>
                     @auth
                     <li><a href="/logout">Выйти</a></li>
@@ -26,7 +27,7 @@
                     @endif
                     @endauth
                     @guest
-                    <li><a href="/login">Войти</a> <img class="icons" src="img/image 24.png"></li>
+                    <li><a href="/login">Войти</a> <img class="icons" src="/img/image 24.png"></li>
                     @endguest
                 </div>
             </ul>
@@ -51,7 +52,7 @@
                         <div class="footer_card">
                             <div>
                                 <p>{{ $product->price }}p</p>
-                                <img src="img/image 24.png" alt="">
+                                <img src="/img/image 24.png" alt="">
                             </div>
                             @auth
                             @if(Auth::guard('sanctum')->user()->administrator)

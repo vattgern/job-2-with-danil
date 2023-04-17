@@ -24,7 +24,7 @@ class ReviewController extends Controller
             'content'=>$request->input('content'),
             'count' => $request->input('count'),
         ]);
-        return redirect()->back();
+        return redirect('/products/'. $request->product_id);
     }
     public function baning($id){
         $review = Review::find($id);
