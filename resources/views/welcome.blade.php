@@ -37,7 +37,7 @@ if($index < 4){ $arrOne[]=$product; } if( $index>= 4 && $index < 8){ $arrTwo[]=$
                                 <img class="icons" src="img/image 24.png">
                             </a>
 
-                            <a href="/catalog/category" class="texth42">
+                            <a href="/catalog/category/1" class="texth42">
                                 Сортировать по категории
                                 <img class="icons" src="img/image 24.png">
                             </a>

@@ -1,0 +1,53 @@
+.review{
+    width: 100%;
+    height: 90vh;
+}
+.review-header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.review-title{
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+    font-weight: 500;
+    text-align: center;
+}
+.review-body{
+    width: 100%;
+    height: 90%;
+}
+.review-body form{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25vw;
+}
+textarea{
+    background-color: #7D4E43;
+    color: #FFF2CE;
+    width: 35%;
+    border: solid 0.1vw var(--collor1);
+    border-radius: 1vw;
+    padding: 10px;
+}
+button{
+    margin-top: 2.5%;
+    width: 10vw;
+    height: 5vh;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFF2CEFF;
+    background-color: #7D4E43FF;
+    border-radius: 1vw;
+    cursor: pointer;
+}

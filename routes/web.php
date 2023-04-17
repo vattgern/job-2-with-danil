@@ -53,5 +53,9 @@ Route::get('/register', [PageController::class, 'register']);
 Route::post('/registeration', [AuthController::class, 'signUp'])->name('registeration');
 Route::get('/products/{product}', [PageController::class, 'index']);
 Route::get('/ban', [PageController::class, 'ban']);
-Route::get('/catalog/{mode?}', [PageController::class, 'catalog']);
 Route::get('/logout', [AuthController::class, 'logout']);
+
+
+Route::get('/catalog', [PageController::class, 'catalog']);
+Route::get('/catalog/price', [PageController::class, 'catalogSortByPrice']);
+Route::get('/catalog/category/{id}', [PageController::class, 'catalogSortByCategory']);

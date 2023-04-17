@@ -15,7 +15,19 @@
             <ul>
                 <li><a href="/">Главная</a> <img class="icons" src="/img/image 24.png"></li>
                 <li><a href="/catalog/price">Сортировать по цене</a> <img class="icons" src="/img/image 24.png"></li>
-                <li><a href="/catalog/category">Сортировать по категориям</a> <img class="icons" src="/img/image 24.png"></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Сортировать по категориям</button>
+                        <div class="dropdown-content">
+                            @php
+                                $categories = \App\Models\Category::all();
+                            @endphp
+                            @foreach($categories as $category)
+                                <a href="/catalog/category/{{$category->id}}">{{ $category->title }}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
                 <li><a href="/catalog">Сбросить</a> <img class="icons" src="/img/image 24.png"></li>
                 <div>
                     @auth
@@ -34,7 +46,7 @@
         </nav>
     </header>
     <div class="type">
-        <p>Торты</p>
+        <p>{{ $title['title'] }}</p>
     </div>
     <main>
         <div class="section">

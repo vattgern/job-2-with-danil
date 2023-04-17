@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ReviewResource;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Review;
@@ -55,21 +56,25 @@ class PageController extends Controller
         $product = Product::find($id);
         return view('productEdit', compact('id', 'product'));
     }
-    public function catalog($mode = null)
+    public function catalog()
     {
-        $products = [];
-        if($mode == 'price'){
-            $products = ProductResource::collection(DB::table('products')
-                ->orderBy('price')
-                ->get());
-        } elseif ($mode == 'category') {
-            $products = ProductResource::collection(DB::table('products')
-                ->orderBy('category_id')
-                ->get());
-        } else {
-            $products = Product::all();
-        }
-        return view('catalog', compact('products'));
+        $products = Product::all();
+        $title = ['title' => 'Все'];
+        return view('catalog', compact('products', 'title'));
+    }
+    public function catalogSortByPrice(){
+        $products = ProductResource::collection(DB::table('products')
+            ->orderBy('price')
+            ->get());
+        $title = ['title' => 'По цене'];
+        return view('catalog', compact('products', 'title'));
+    }
+    public function catalogSortByCategory($id){
+        $products = ProductResource::collection(
+            Product::all()->where('category_id', $id)
+        );
+        $title = Category::find($id);
+        return view('catalog', compact('products', 'title'));
     }
     public function reviewEdit($id, $product){
         $review = new ReviewResource(Review::find($id));
